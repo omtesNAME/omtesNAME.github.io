@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>севастополь — гайд для своих</title>
+  <meta name="description" content="путеводитель по севастополю: что посмотреть, где поесть, куда съездить">
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="севастополь — гайд для своих">
+  <meta property="og:description" content="куда, зачем и почему">
+  <!-- TODO: создать OG-картинку 1200×630px → /images/og/og-image.jpg -->
+  <meta property="og:image" content="/images/og/og-image.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Шрифты:
+       Unbounded — display-заголовки, геометрический гротеск с кириллицей
+       ближайший аналог Phonk Sans / Cabinet Grotesk, доступный на Google Fonts
+       Onest — основной текст и интерфейс -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;900&family=Onest:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- =====================================================
+       HEADER — фиксированная шапка
+       ===================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <a href="#" class="logo" aria-label="на главную">севастополь</a>
+
+      <nav class="nav-desktop" aria-label="основная навигация">
+        <ul>
+          <li><a href="#zhilye">жильё</a></li>
+          <li><a href="#rayony">районы</a></li>
+          <li><a href="#izvestnoe">известное</a></li>
+          <li class="nav-has-dropdown">
+            <a href="#restorany">места</a>
+            <ul class="nav-dropdown" aria-label="подменю места">
+              <li><a href="#restorany">где поесть</a></li>
+              <li><a href="#bary">где выпить</a></li>
+              <li><a href="#plyazhi">пляжи</a></li>
+              <li><a href="#priroda">не для туристов</a></li>
+            </ul>
+          </li>
+          <li><a href="#poezdki">поездки</a></li>
+          <li><a href="#nyuansy">мелочи</a></li>
+        </ul>
+      </nav>
+
+      <button class="burger" id="burger-btn" aria-label="открыть меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Мобильное меню — оверлей на весь экран -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="мобильное меню">
+    <button class="mobile-menu__close" id="mobile-close-btn" aria-label="закрыть меню">✕</button>
+    <nav aria-label="мобильная навигация">
+      <ul>
+        <li><a href="#zhilye"    class="mobile-menu__link">жильё</a></li>
+        <li><a href="#rayony"    class="mobile-menu__link">районы</a></li>
+        <li><a href="#izvestnoe" class="mobile-menu__link">известное</a></li>
+        <li><a href="#restorany" class="mobile-menu__link">где поесть</a></li>
+        <li><a href="#bary"      class="mobile-menu__link">где выпить</a></li>
+        <li><a href="#plyazhi"   class="mobile-menu__link">пляжи</a></li>
+        <li><a href="#priroda"   class="mobile-menu__link">природа</a></li>
+        <li><a href="#poezdki"   class="mobile-menu__link">поездки</a></li>
+        <li><a href="#nyuansy"   class="mobile-menu__link">мелочи</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- =====================================================
+         1. HERO — кремовый фон (#F5EFEB), волна teal-линий
+         ===================================================== -->
+    <section class="section-hero" id="hero" aria-label="заглавный экран">
+
+      <!-- Волна: teal-линии на кремовом, нежное колыхание -->
+      <div class="hero-waves" aria-hidden="true">
+        <svg viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <line class="wave-line" x1="0" y1="60"  x2="1440" y2="60"/>
+          <line class="wave-line" x1="0" y1="120" x2="1440" y2="120"/>
+          <line class="wave-line" x1="0" y1="180" x2="1440" y2="180"/>
+          <line class="wave-line" x1="0" y1="240" x2="1440" y2="240"/>
+          <line class="wave-line" x1="0" y1="300" x2="1440" y2="300"/>
+          <line class="wave-line" x1="0" y1="360" x2="1440" y2="360"/>
+          <line class="wave-line" x1="0" y1="420" x2="1440" y2="420"/>
+          <line class="wave-line" x1="0" y1="480" x2="1440" y2="480"/>
+          <line class="wave-line" x1="0" y1="540" x2="1440" y2="540"/>
+          <line class="wave-line" x1="0" y1="600" x2="1440" y2="600"/>
+        </svg>
+      </div>
+
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">севастополь</h1>
+          <p class="hero-tagline">гайд для своих</p>
+          <p class="hero-meta">куда, зачем и почему</p>
+          <div class="hero-scroll" aria-hidden="true">↓</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         2. INTRO — кремовый фон
+         ===================================================== -->
+    <section id="intro" aria-label="о городе">
+      <div class="container">
+        <blockquote class="intro-quote">
+          город моряков, винограда и солёного ветра.
+          фиолент, балаклава, херсонес, бухты и дикие пляжи —
+          всё это севастополь.
+        </blockquote>
+        <p class="intro-subquote">
+          город, который точно запомнится
+        </p>
+        <div class="intro-stats" aria-label="ключевые цифры">
+          <span>8 районов</span>
+          <span class="stat-sep" aria-hidden="true">·</span>
+          <span>20+ мест</span>
+          <span class="stat-sep" aria-hidden="true">·</span>
+          <span>10+ заведений</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         3. ГДЕ ЖИТЬ — голубой фон (#C8D9E6)
+         Перенесена сюда — гости смотрят первым делом
+         ===================================================== -->
+    <section class="section--sky" id="zhilye" aria-label="где остановиться">
+      <span class="section-num" aria-hidden="true">01</span>
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">аренда</p>
+          <h2 class="section-title">где жить</h2>
+        </div>
+        <!-- TODO: карточки районов с плюсами (✓) и минусами (✗).
+             Каждая карточка: название района, 2-3 предложения, список плюсов и минусов -->
+        <div class="cards-grid" id="housing-grid">
+          <p class="placeholder-note">[карточки жилья по районам — заполним в этапе 4]</p>
+        </div>
+        <blockquote class="section-callout">
+          сентябрь в севастополе — всё ещё высокий сезон. бронируйте за 2–3 месяца, иначе хорошие варианты разбирают
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         4. РАЙОНЫ — кремовый фон, карта + карточки
+         ===================================================== -->
+    <section id="rayony" aria-label="районы города">
+      <span class="section-num" aria-hidden="true">02</span>
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">как устроен город</p>
+          <h2 class="section-title">районы города</h2>
+          <p class="section-quip">северная, южная, казачка и так далее</p>
+        </div>
+
+        <!-- КАРТА РАЙОНОВ
+             TODO: сохрани скриншот карты в /images/map-base.png
+             Размер: 1200×800px (3:2), PNG или WebP.
+             Охвати всё — от Балаклавы до Северной стороны.
+             Замени .map-placeholder на:
+             <img src="/images/map-base.png" alt="карта севастополя" loading="lazy"> -->
+        <div class="map-wrapper">
+          <div class="map-placeholder">
+            <span>карта появится здесь<br><small>→ /images/map-base.png (1200×800px)</small></span>
+          </div>
+          <svg class="map-svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <!-- TODO: полигоны и подписи районов добавим когда будет реальная карта -->
+          </svg>
+        </div>
+
+        <!-- Карточки районов — наполнятся из data/places.js -->
+        <div class="districts-grid" id="districts-grid">
+          <p class="placeholder-note">[карточки 8 районов — заполним в этапе 4]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         5. МЕСТА С ОТКРЫТОК — белый фон (#F5EFEB)
+         ===================================================== -->
+    <section class="section--white" id="izvestnoe" aria-label="достопримечательности">
+      <span class="section-num" aria-hidden="true">03</span>
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">без чего не уедешь</p>
+          <h2 class="section-title">места с открыток</h2>
+        </div>
+        <!-- TODO: каждая карточка: фото 4:3 (~800×600px), номер 01–08, название, описание, время/цена/район -->
+        <div class="cards-grid" id="sights-grid">
+          <p class="placeholder-note">[8 карточек мест — заполним в этапе 4]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         6. ГДЕ ПОЕСТЬ — кремовый фон
+         ===================================================== -->
+    <section id="restorany" aria-label="рестораны и кафе">
+      <span class="section-num" aria-hidden="true">04</span>
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">кафе и рестораны</p>
+          <h2 class="section-title">где поесть</h2>
+          <p class="section-quip">голодными не останетесь</p>
+        </div>
+        <!-- TODO: каждая карточка: фото 4:3 (~800×600px), название, район-тег, кухня, ценовой диапазон, адрес -->
+        <div class="cards-grid" id="restaurants-grid">
+          <p class="placeholder-note">[карточки ресторанов — заполним в этапе 4]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         7. ГДЕ ВЫПИТЬ — тёмно-синий navy (#2F4156)
+         ===================================================== -->
+    <section class="section--navy" id="bary" aria-label="бары">
+      <span class="section-num" aria-hidden="true">05</span>
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">бары и рюмочные</p>
+          <h2 class="section-title">где выпить</h2>
+          <p class="section-quip">ну вы поняли</p>
+        </div>
+        <!-- TODO: каждая карточка: фото 4:3 (~800×600px), название, описание, часы работы -->
+        <div class="cards-grid" id="bars-grid">
+          <p class="placeholder-note">[карточки баров — заполним в этапе 4]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         8. ПЛЯЖИ — голубой фон (#C8D9E6)
+         ===================================================== -->
+    <section class="section--sky" id="plyazhi" aria-label="пляжи">
+      <span class="section-num" aria-hidden="true">06</span>
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">море</p>
+          <h2 class="section-title">пляжи</h2>
+          <p class="section-quip">вода ещё тёплая, честно</p>
+        </div>
+        <!-- TODO: каждая карточка: фото горизонтальное 16:9 (~1200×675px), тип берега (песок/галька), удобства, как добраться -->
+        <div class="cards-grid" id="beaches-grid">
+          <p class="placeholder-note">[карточки пляжей — заполним в этапе 4]</p>
+        </div>
+        <p class="section-note">
+          в сентябре море ещё тёплое: 18–22°, так что не искупаться точно получится
+        </p>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         9. НЕ ДЛЯ ТУРИСТОВ — кремовый фон
+         ===================================================== -->
+    <section id="priroda" aria-label="природа и местные места">
+      <span class="section-num" aria-hidden="true">07</span>
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">куда ходят местные</p>
+          <h2 class="section-title">не для туристов</h2>
+          <p class="section-quip">тссс, никому не показывайте</p>
+        </div>
+        <!-- TODO: каждая карточка: фото 3:2 (~900×600px), название, описание -->
+        <div class="cards-grid" id="nature-grid">
+          <p class="placeholder-note">[карточки природных мест — заполним в этапе 4]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         10. КУДА СЪЕЗДИТЬ — тёмно-синий navy (#2F4156)
+         ===================================================== -->
+    <section class="section--navy" id="poezdki" aria-label="поездки рядом">
+      <span class="section-num" aria-hidden="true">08</span>
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">крым</p>
+          <h2 class="section-title">куда съездить</h2>
+          <p class="section-quip">если ещё есть силы</p>
+        </div>
+        <!-- TODO: горизонтальные карточки: фото 16:9 (~800×450px) слева, текст справа.
+             На мобиле — фото сверху, текст снизу -->
+        <div class="trips-list" id="trips-grid">
+          <p class="placeholder-note">[горизонтальные карточки поездок — заполним в этапе 4]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         11. МЕЛОЧИ — белый фон (#FFFFFF)
+         ===================================================== -->
+    <section class="section--white" id="nyuansy" aria-label="практическая информация">
+      <span class="section-num" aria-hidden="true">09</span>
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">для гостей</p>
+          <h2 class="section-title">мелочи</h2>
+          <p class="section-quip">то, что лучше знать заранее</p>
+        </div>
+        <!-- TODO: иконки SVG → /assets/icons/, 6 блоков:
+             транспорт / связь / деньги / погода / что брать / как добраться -->
+        <div class="info-grid" id="info-grid">
+          <p class="placeholder-note">[6 информационных блоков — заполним в этапе 4]</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================
+       ФУТЕР — navy (#2F4156), три колонки + большая надпись
+       ===================================================== -->
+  <footer class="site-footer" aria-label="подвал сайта">
+    <div class="container">
+      <div class="footer-cols">
+
+        <!-- Колонка 1: о свадьбе -->
+        <div>
+          <span class="footer-col__label">о свадьбе</span>
+          <p class="footer-col__text">
+            севастополь · гайд 
+          </p>
+          <!-- TODO: замени [INVITE_URL] на ссылку на сайт-приглашение -->
+          <a href="[INVITE_URL]" class="btn btn-accent" target="_blank" rel="noopener">
+            сайт-приглашение →
+          </a>
+        </div>
+
+        <!-- Колонка 2: связаться -->
+        <div>
+          <span class="footer-col__label">связаться</span>
+          <nav class="footer-col__links" aria-label="контакты">
+            <!-- TODO: замени [TELEGRAM_ORG] на ник основного организатора (@username) -->
+<a href="https://t.me/omtesNAME">telegram · Игорь</a>
+<a href="https://t.me/jane_vasileva">telegram · Евгения</a>
+          </nav>
+        </div>
+
+        <!-- Колонка 3: разделы -->
+        <div>
+          <span class="footer-col__label">разделы</span>
+          <nav class="footer-col__links" aria-label="навигация в футере">
+            <a href="#zhilye">жильё</a>
+            <a href="#rayony">районы</a>
+            <a href="#izvestnoe">известное</a>
+            <a href="#restorany">где поесть</a>
+            <a href="#poezdki">поездки</a>
+            <a href="#nyuansy">мелочи</a>
+          </nav>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 · сделано для своих</span>
+      </div>
+    </div>
+
+    <!-- Декоративная надпись на весь низ футера -->
+    <div class="footer-wordmark-wrap" aria-hidden="true">
+      <span class="footer-wordmark">севастополь</span>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
