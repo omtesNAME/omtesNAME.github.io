@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e ' *)",
+      "Bash(node --check js/main.js)",
+      "Bash(node --check data/places.js)"
+    ]
+  }
+}

@@ -1,48 +1,75 @@
 /* ==============================================
-   places.js — Все места путеводителя
-   ИСТОЧНИК ПРАВДЫ: правь только здесь.
+   places.js — источник правды по местам Севастополя
    ============================================== */
 
-const PLACES = {
+const famous = [
+  { id: 1, name: "новый херсонес", desc: "современный музейный парк рядом с античным городищем. большая территория, интерактивные экспозиции.", price: "бесплатно", tag: "история", featured: false, image: "/images/famous/hersones_new.jpg", url: "https://xn--e1aaxdjgdz.xn--p1ai/" },
+  { id: 2, name: "памятник затопленным кораблям", desc: "главная открытка севастополя. колонна с орлом прямо в воде у приморского бульвара. лучше на закате.", price: "бесплатно", tag: "символ", featured: true, image: "/images/famous/zatoplennum.jpg", url: "https://yandex.com/maps/org/monument_to_the_sunken_ships/58354816334/?ll=33.551173%2C44.584572&z=9" },
+  { id: 3, name: "графская пристань", desc: "колоннада 1846 года — отсюда открывается вид на бухту и корабли флота. приходите вечером.", price: "бесплатно", tag: "символ", featured: false, image: "/images/famous/graf_pristan.jpg", url: "https://yandex.com/maps/org/grafskaya_marina/231098100786/?ll=33.526950%2C44.616976&z=13" },
+  { id: 4, name: "генуэзская крепость чембало", desc: "крепость над балаклавской бухтой. подъём на 20 минут — вид на всю бухту в награду.", price: "бесплатно", tag: "крепость", featured: true, image: "/images/famous/chembalo_donjon1.jpg", url: "https://www.sputnik8.com/ru/balaclava/pages/kak-dobratsya-do-kreposti-chembalo-iz-balaklavy" },
+  { id: 5, name: "малахов курган", desc: "высота где решалась судьба двух оборон. парк, мемориал, орудия.", price: "бесплатно", tag: "история", featured: false, image: "/images/famous/kurgan.jpg", url: "https://yandex.com/maps/org/140595109124/?ll=33.548025%2C44.604514&z=16.92" },
+  { id: 6, name: "музей подземный севастополь", desc: "подземные штольни и укрепления прямо под городом. экскурсия с аудиогидом — атмосферно.", price: "500", tag: "музей", featured: false, image: "/images/famous/underground_sevas.jpg", url: "https://xn--80adfeakptekgjacl1ads8n5a.xn--p1ai/" },
+  { id: 7, name: "35-я береговая батарея", desc: "самый сильный мемориал города. подземная батарея последнего дня обороны 1942. бесплатно, но билеты бронировать заранее.", price: "бесплатно", tag: "мемориал", featured: true, image: "/images/famous/35_batare.jpg", url: "https://xn--35-8kcad0a0fo4j.xn--p1ai/" },
+  { id: 8, name: "покровский собор", desc: "главный собор севастополя в центре города. красивый как снаружи, так и внутри.", price: "бесплатно", tag: "архитектура", featured: false, image: "/images/famous/pokrov_sobor.jpg", url: "https://yandex.com/maps/org/sobor_pokrova_presvyatoy_bogoroditsy/1200762098/?ll=33.521965%2C44.605246&z=16.63" }
+];
 
-  /* ------ РАЙОНЫ ------ */
-  districts: [
-    /* TODO: наполним в Этапе 3 */
-  ],
+const food = [
+  { id: 1, name: "sunday", desc: "лучшие бургеры в городе.", price: "500-1000", featured: true, url: "https://yandex.com/maps/org/sunday/83903725587/?ll=33.517410%2C44.612652&z=16.63" },
+  { id: 2, name: "сайгон (сеть)", desc: "вьетнамская кухня — фо бо, том ям и далее по списку. недорого, быстро и очень вкусно.", price: "300-700", featured: true, url: "https://yandex.com/maps/org/saygon_pho_bo_artbuht/129382770910/?ll=33.519934%2C44.612542&z=15.37" },
+  { id: 3, name: "этажи", desc: "типичный рестик в центре, вкусно.", price: "1000-2000", featured: false, url: "https://yandex.com/maps/org/etazhi/81730835923/?ll=33.517931%2C44.612523&z=15.37" },
+  { id: 4, name: "арома бистро (сеть)", desc: "уютное бистро с хорошим кофе и завтраками. крутая и стильная веранда, да и внутри довольно атмосферно, для фоточек топ.", price: "500-1000", featured: true, url: "https://yandex.com/maps/org/aroma_bistro/78051273630/?ll=33.520931%2C44.613043&z=15.37" },
+  { id: 5, name: "барбуля бар", desc: "рыба и морепродукты в центре. названо в честь барабульки — местной рыбки.", price: "500-1000", featured: true, url: "https://yandex.com/maps/org/barabulabar/122368316590/?ll=33.523752%2C44.602152&z=15.37" },
+  { id: 6, name: "старик хинкалыч (сеть)", desc: "хинкали и грузинская кухня. большие порции, демократичные цены.", price: "300-700", featured: false, url: "https://yandex.com/maps/org/starik_khinkalych/35056853773/?ll=33.523249%2C44.614679&z=15.37" },
+  { id: 7, name: "больше чем завтрак", desc: "название говорит само за себя, вкусный завтраки целый день.", price: "500-1000", featured: false, url: "https://yandex.com/maps/org/bolshe/62140626714/?ll=33.521686%2C44.599662&z=15.37" },
+  { id: 8, name: "green beer", desc: "кафе-бар на северной стороне, почти единственное и вкусное место на северное.", price: "500-1000", featured: false, note: "северная сторона", url: "https://yandex.com/maps/org/green_beer/174033479804/?ll=33.541152%2C44.633752&z=15.37" },
+  { id: 9, name: "protesto", desc: "пекарня-кафе с авторской выпечкой и кофе. завтраки и перекусы.", price: "300-700", featured: false, url: "https://yandex.com/maps/org/protesto/174505248773/?ll=33.520402%2C44.612542&z=15.37" },
+  { id: 10, name: "asian kitchen bar", desc: "хай левел азиатская кухня: паназия, суши, вок. модный интерьер.", price: "1000-2000", featured: false, url: "https://yandex.com/maps/org/asian_kitchen_bar/161267536922/?ll=33.523626%2C44.614397&z=15.37" },
+  { id: 11, name: "томби (сеть)", desc: "кафе с авторской кухней и хорошим видом. меню меняется.", price: "300-700", featured: false, url: "https://yandex.com/maps/org/tombee/66464177265/?ll=33.520213%2C44.613935&z=15.37" },
+  { id: 12, name: "шава на нахимова", desc: "легендарная точка с шаурмой. очередь — знак качества.", price: "300", featured: true, url: "https://yandex.com/maps/org/shaurma/208227330045/?ll=33.526465%2C44.617489&z=15.37" },
+  { id: 13, name: "супертяж (сеть)", desc: "бургеры и street food. неформально, вкусно, недорого.", price: "300-500", featured: false, url: "https://yandex.com/maps/org/supertyazh_shawarma_coffee/77428243323/?ll=33.518973%2C44.612908&z=15.37" },
+  { id: 14, name: "челентано", desc: "пицца и паста в итальянском стиле. хорошо для компании.", price: "500-1000", featured: false, url: "https://yandex.com/maps/org/chelentano/1100448981/?ll=33.523258%2C44.602133&z=15.37" }
+];
 
-  /* ------ ДОСТОПРИМЕЧАТЕЛЬНОСТИ ------ */
-  sights: [
-    /* TODO: наполним в Этапе 3 */
-  ],
+const bars = [
+  { id: 1, name: "krongs", desc: "крафтовое пиво и закуски. уютный бар для тех кто шарит, там те самые нишевые челы.", price: "300/кружка пива", featured: true, url: "https://yandex.com/maps/org/krong_pub/142447122154/?ll=33.520120%2C44.613274&z=14" },
+  { id: 2, name: "317", desc: "бар в центре и диджеями по выходным, нишевые и тут есть.", price: "300/кружка пива", featured: true, image: "/images/bars/317.webp", url: "https://yandex.com/maps/org/pub_317/193834777598/gallery/?ll=33.520836%2C44.610531&z=16" },
+  { id: 3, name: "рок-н-рольщики", desc: "живая музыка, рок, неформальная атмосфера. громко и весело, обязательно к посещению.", price: "1000-2000", featured: true, url: "https://yandex.com/maps/org/rocknrolla/163756793364/?ll=33.525108%2C44.614403&z=15.37" },
+  { id: 4, name: "сохо", desc: "типичный клуб4ек.", price: "1000-2000", featured: false },
+  { id: 5, name: "маяковский", desc: "культурный бар с литературным уклоном. квизы и чтения.", price: "500-1000", featured: false, url: "https://yandex.com/maps/org/mayakovsky/73881321842/?ll=33.518874%2C44.612202&z=15.37" },
+  { id: 6, name: "рюмочная", desc: "советская эстетика, вкусные настойки, местная публика.", price: "500-1000", featured: true, url: "https://yandex.com/maps/org/ryumochnaya_sevastopol/34380367723/?ll=33.519934%2C44.612542&z=16" },
+  { id: 7, name: "локо", desc: "молодёжный бар с танцполом с мексиканским уклоном. работает до утра.", price: "1000-2000", featured: false, url: "https://yandex.com/maps/org/loco/106510093713/?ll=33.519934%2C44.612542&z=15.37" },
+  { id: 8, name: "пивоварня северная сторона", desc: "бар на северной стороне, не нишевый, варят свое пиво, очень даже неплохо.", price: "400/литр", featured: false, note: "северная сторона", url: "https://yandex.com/maps/org/north_side_brewing_co/108537120491/?ll=33.543569%2C44.644193&z=15.37" }
+];
 
-  /* ------ РЕСТОРАНЫ ------ */
-  restaurants: [
-    /* TODO: наполним в Этапе 3 */
-  ],
+const beaches = [
+  { id: 1, name: "автобат", desc: "дикий галечный пляж. людей меньше чем на городских, вода чище, вид и спуск на пляж бомба.", type: "галька", featured: false, url: "https://www.lidia-crimea.ru/ekskursii/sevastopol/plyazhi-sevastopolya/sevastopol-plyazh-avtobat-na-fiolente/" },
+  { id: 2, name: "баунти", desc: "небольшой пляж с белой галькой и бирюзовой водой. вид сверху не оставит вас равнодушными, спускаться 10-15 минут, но оно того стоит, внизу советую сзять сап в аренду.", type: "галька", featured: true, url: "https://yandex.com/maps/org/baunti/233781270179/gallery/?ll=33.487550%2C44.535478&z=3" },
+  { id: 3, name: "учкуевка", desc: "главный пляж северной стороны. длинный, песчанный, есть пару диких мест, где можно сделать шашлындос.", type: "песок", featured: true, note: "северная сторона", url: "https://yandex.com/maps/org/uchkuevka/103608466680/gallery/?ll=33.537064%2C44.646047&z=8" },
+  { id: 4, name: "инжир", desc: "дикий пляж в балаклаве — только пешком или на катере, добираться не быстро, но стоит того.", type: "дикий", featured: false, url: "https://www.krym4you.com/otdyh/plyazhi/plyazh-inzhir-v-balaklave/" },
+  { id: 5, name: "голубая бухта", desc: "бухта с ярко-синей водой. тихо, красиво, мало людей.", type: "бухта", featured: false, url: "https://yandex.com/maps/org/plyazh_golubaya_bukhta/22876988992/?ll=33.410182%2C44.565951&z=5" },
+  { id: 6, name: "грот дианы", desc: "пляж у живописного грота. доступен только пешком по тропе.", type: "тропа", featured: false, url: "https://jalita.com/guidebook/sevastopol/grot_diany_mys_lermontova.shtml" }
+];
 
-  /* ------ БАРЫ ------ */
-  bars: [
-    /* TODO: наполним в Этапе 3 */
-  ],
+const hidden = [
+  { id: 1, name: "херсонесский маяк", desc: "действующий маяк на краю мыса. закат отсюда — один из лучших в городе. мало кто знает.", price: "бесплатно", featured: false, url: "https://yandex.com/maps/org/chersonesos_lighthouse/117857429816/?ll=33.380381%2C44.583204&z=16.6" },
+  { id: 2, name: "дикий автобат", desc: "самый лучший пляж, по-моему скромному мнению, спуск тяжелый, скалы, чистейшая вода, только местные, прыжки в воду.", price: "бесплатно", featured: true, url: "https://yandex.com/maps/?display-text=%D0%90%D0%B2%D1%82%D0%BE%D0%B1%D0%B0%D1%82%20%D0%BF%D0%BB%D1%8F%D0%B6&l=sat&ll=33.452713%2C44.563350&mode=search&sctx=ZAAAAAgBEAAaKAoSCYSDvYkht0BAEbjlIynpRUZAEhIJyGEwf4XMZT8RZXJqZ5jacj8iBgABAgMEBSgKOABAvwdIAWI6cmVhcnI9c2NoZW1lX0xvY2FsL0dlb3VwcGVyL0FkdmVydHMvQ3VzdG9tTWF4YWR2L0VuYWJsZWQ9MWI6cmVhcnI9c2NoZW1lX0xvY2FsL0dlb3VwcGVyL0FkdmVydHMvQ3VzdG9tTWF4YWR2L01heGFkdj0xNWJEcmVhcnI9c2NoZW1lX0xvY2FsL0dlb3VwcGVyL0FkdmVydHMvQ3VzdG9tTWF4YWR2L1JlZ2lvbklkcz1bMSwxMDE3NF1iQHJlYXJyPXNjaGVtZV9Mb2NhbC9HZW91cHBlci9BZHZlcnRzL01heGFkdlRvcE1peC9NYXhhZHZGb3JNaXg9MTBqAnJ1nQHNzMw9oAEAqAEAvQHn2ZdbwgEGqqm1wfsEggIX0JDQstGC0L7QsdCw0YIg0L%2FQu9GP0LaKAgCSAgCaAgxkZXNrdG9wLW1hcHM%3D&sll=33.430588%2C44.543259&sspn=0.000665%2C0.001151&text=%D0%90%D0%B2%D1%82%D0%BE%D0%B1%D0%B0%D1%82%20%D0%BF%D0%BB%D1%8F%D0%B6&whatshere%5Bpoint%5D=33.429872%2C44.543211&whatshere%5Bzoom%5D=19&z=3" },
+  { id: 3, name: "видовая крыша в балаклаве", desc: "смотровая точка над балаклавской бухтой. не обозначена на картах — нужно знать куда идти, вид на бухту огонь, лучше на закате, романтика обеспечена.", price: "бесплатно", featured: true, url: "https://vk.com/wall-48519852_359726" },
+  { id: 4, name: "секретный винный бар в балаклаве", desc: "небольшой бар в тихой улочке балаклавы, возьмите бутылку белого сухого, устриц и наслаждайтесь вечером и друг другом.", price: "1000-2000", featured: true, url: "https://yandex.com/maps/org/rybnyy_vinnyy/235883708134/?l=sat&ll=33.601196%2C44.498173&z=15" },
+  { id: 5, name: "вид на бухту с северной", desc: "смотровая точка на северной стороне с видом на бухту.", price: "бесплатно", featured: false, note: "северная сторона", url: "https://yandex.com/maps/959/sevastopol/?l=sat&ll=33.537805%2C44.625693&mode=search&sctx=ZAAAAAgBEAAaKAoSCdZSQNr%2FzEBAEfz7jAsHQEZAEhIJWFTE6SRbfT8R4J9SJcrecj8iBgABAgMEBSgKOABAsaYNSAFiOnJlYXJyPXNjaGVtZV9Mb2NhbC9HZW91cHBlci9BZHZlcnRzL0N1c3RvbU1heGFkdi9FbmFibGVkPTFiOnJlYXJyPXNjaGVtZV9Mb2NhbC9HZW91cHBlci9BZHZlcnRzL0N1c3RvbU1heGFkdi9NYXhhZHY9MTViRHJlYXJyPXNjaGVtZV9Mb2NhbC9HZW91cHBlci9BZHZlcnRzL0N1c3RvbU1heGFkdi9SZWdpb25JZHM9WzEsMTAxNzRdYkByZWFycj1zY2hlbWVfTG9jYWwvR2VvdXBwZXIvQWR2ZXJ0cy9NYXhhZHZUb3BNaXgvTWF4YWR2Rm9yTWl4PTEwagJydZ0BzczMPaABAKgBAL0BtvNf%2BIICGdGA0YvQsdC90YvQuSDQstC40L3QvdGL0LmKAgCSAgCaAgxkZXNrdG9wLW1hcHM%3D&sll=33.537805%2C44.625693&sspn=0.001792%2C0.001149&text=%D1%80%D1%8B%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%B2%D0%B8%D0%BD%D0%BD%D1%8B%D0%B9&whatshere%5Bpoint%5D=33.537585%2C44.625854&whatshere%5Bzoom%5D=19&z=19" },
+  { id: 6, name: "бесплатные инжиры на бутакова", desc: "в сентябре в пустынном проулке можно своровать вкуснейшие инжиры или можете пойти на рынок и купить их там за 400р, выбор за вами.", price: "бесплатно, если не поймают", featured: true, url: "https://yandex.com/maps/?l=sat&ll=33.517877%2C44.605458&mode=search&sctx=ZAAAAAgBEAAaKAoSCdZSQNr%2FzEBAEfz7jAsHQEZAEhIJWFTE6SRbfT8R4J9SJcrecj8iBgABAgMEBSgKOABAsKYNSAFiOnJlYXJyPXNjaGVtZV9Mb2NhbC9HZW91cHBlci9BZHZlcnRzL0N1c3RvbU1heGFkdi9FbmFibGVkPTFiOnJlYXJyPXNjaGVtZV9Mb2NhbC9HZW91cHBlci9BZHZlcnRzL0N1c3RvbU1heGFkdi9NYXhhZHY9MTViRHJlYXJyPXNjaGVtZV9Mb2NhbC9HZW91cHBlci9BZHZlcnRzL0N1c3RvbU1heGFkdi9SZWdpb25JZHM9WzEsMTAxNzRdYkByZWFycj1zY2hlbWVfTG9jYWwvR2VvdXBwZXIvQWR2ZXJ0cy9NYXhhZHZUb3BNaXgvTWF4YWR2Rm9yTWl4PTEwagJydZ0BzczMPaABAKgBAL0BtvNf%2BIICGdGA0YvQsdC90YvQuSDQstC40L3QvdGL0LmKAgCSAgCaAgxkZXNrdG9wLW1hcHM%3D&sll=33.518738%2C44.605593&sspn=0.000665%2C0.001150&text=%D1%80%D1%8B%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%B2%D0%B8%D0%BD%D0%BD%D1%8B%D0%B9&whatshere%5Bpoint%5D=33.517936%2C44.605365&whatshere%5Bzoom%5D=19&z=7" }
+];
 
-  /* ------ ПЛЯЖИ ------ */
-  beaches: [
-    /* TODO: наполним в Этапе 3 */
-  ],
+const hiking = [
+  { id: 1, name: "большая севастопольская тропа", desc: "маршрут от балаклавы вдоль побережья. можно идти весь день или взять отдельный участок. виды — огонь.", price: "бесплатно", distance: "балаклава", duration: "полдня — весь день", featured: true, url: "https://bst-sev.ru/route/balaklava-laspinskiy" },
+  { id: 2, name: "чернореченский каньон", desc: "маршрут вдоль воды, скал и зелени. красиво, но обувь нужна нормальная: местами тропа не городская прогулка.", price: "бесплатно", distance: "байдарская долина", duration: "полдня", featured: false, url: "https://www.krym4you.com/dostoprimechatelnosti/ekskursionnye-marshruty/chernorechenskij-kanon/" },
+  { id: 3, name: "храм солнца", desc: "скальная точка над ласпи, куда идут за видом и немного за мистикой. лучше выезжать утром и брать воду.", price: "бесплатно", distance: "ласпи", duration: "3-5 часов", featured: false, url: "https://www.krym4you.com/dostoprimechatelnosti/ekskursionnye-marshruty/hram-solnca/" },
+  { id: 4, name: "виа феррата", desc: "маршруты со страховкой по скалам. есть варианты в севастополе и в ялте, идти лучше с инструктором.", price: "2000-5000", distance: "севастополь / ялта", duration: "2-4 часа", featured: false, url: "https://viaferratacrimea.ru/" }
+];
 
-  /* ------ ПРИРОДА ------ */
-  nature: [
-    /* TODO: наполним в Этапе 3 */
-  ],
+const trips = [
+  { id: 1, name: "ялта", desc: "ласточкино гнездо, воронцовский дворец, канатка на ай-петри, мест много, что все не перечесть.", distance: "2 часа", featured: true },
+  { id: 2, name: "бахчисарай", desc: "ханский дворец, чуфут-кале, монастырь в скалах. татарская кухня обязательна, бывшая столица крыма.", distance: "1 час", featured: false },
+  { id: 3, name: "алупка", desc: "воронцовский дворец. очень уютный городочек с милыми улочками.", distance: "1.5 часа", featured: false }
+];
 
-  /* ------ ПОЕЗДКИ ------ */
-  trips: [
-    /* TODO: наполним в Этапе 3 */
-  ],
-
-  /* ------ ЖИЛЬЁ (по районам) ------ */
-  housing: [
-    /* TODO: наполним в Этапе 3 */
-  ],
-
-};
+window.placesData = { famous, food, bars, beaches, hidden, trips, hiking };
