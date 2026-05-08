@@ -1113,7 +1113,7 @@ section > .container {
 .carousel::-webkit-scrollbar { display: none; }
 
 .carousel-card {
-  flex: 0 0 min(85vw, 290px);
+  flex: 0 0 min(88vw, 330px);
   scroll-snap-align: start;
   border-radius: var(--r-lg);
   overflow: hidden;
@@ -1132,11 +1132,11 @@ section > .container {
 }
 
 @media (min-width: 640px) {
-  .carousel-card { flex: 0 0 270px; }
+  .carousel-card { flex: 0 0 330px; }
 }
 
 @media (min-width: 1024px) {
-  .carousel-card { flex: 0 0 calc((100% - 2.2rem) / 3.25); }
+  .carousel-card { flex: 0 0 calc((100% - 1.4rem) / 2.6); }
 }
 
 .carousel-card__photo {
@@ -1184,6 +1184,9 @@ section > .container {
   color: var(--accent-teal);
   letter-spacing: 0.06em;
   flex-shrink: 0;
+  line-height: 1.25;
+  text-align: right;
+  white-space: pre-line;
 }
 
 .carousel-card__desc {
@@ -1191,10 +1194,6 @@ section > .container {
   color: var(--text-secondary);
   line-height: 1.55;
   flex: 1;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .carousel-card__note {
