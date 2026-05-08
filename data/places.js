@@ -2,6 +2,15 @@
    places.js — источник правды по местам Севастополя
    ============================================== */
 
+const housing = [
+  { id: 1, name: "авито", desc: "северная сторона: квартиры, отели и дома посуточно. в фильтре уже указан район и нужные параметры, вам остаётся только выбрать подходящий вариант.", tag: "северная сторона", image: "/images/02-zhilye-gde-zhit/avito.png", url: "https://www.avito.ru/sevastopol/mixed_realty_rent/sdam/posutochno-ASgBAgICAkSSA8gQ8AeSUg?drawId=af83b993de4ef666e8dd06199e35dd1e&f=ASgBAQECBkSSA8gQ8AeSUqqDD5z58ALI_hQCqt8VAqSsFsrblgMBQM6lFjS2xJYDvMSWA7jElgMCRagtH3siZnJvbSI6MjAyNjA5MTIsInRvIjoyMDI2MDkxOX3Q5hREIntcInZlcnNpb25cIjoxLFwidG90YWxDb3VudFwiOjIsXCJhZHVsdHNDb3VudFwiOjIsXCJjaGlsZHJlblwiOltdfSI&localPriority=0&map=eyJzZWFyY2hBcmVhIjp7ImxhdEJvdHRvbSI6NDQuNjEzNzA4MjU5MTM2OTksImxhdFRvcCI6NDQuNjYwODU3NzM1OTE1OTMsImxvbkxlZnQiOjMzLjUwOTUzODE3NjcxMzMzLCJsb25SaWdodCI6MzMuNTc2NDg2MTEzNzI1MDV9LCJ6b29tIjoxNH0%3D&segment=travel" },
+  { id: 2, name: "савенок", desc: "спокойный вариант рядом с морем и без суеты центра. удобно, если хочется жить ближе к нам и к пляжам.", tag: "северная сторона", image: "/images/02-zhilye-gde-zhit/savenok.jpg", url: "https://savenok-sevastopol.ru/" },
+  { id: 3, name: "круиз", desc: "гостиничный формат: приехали, заселились и не думаете о бытовых мелочах. хороший вариант для короткой поездки.", tag: "северная сторона", image: "/images/02-zhilye-gde-zhit/kruiz.webp", url: "https://kruiz-1759384459.clients.site/" },
+  { id: 4, name: "усадьба хорошово", desc: "загородный формат: больше воздуха, тишины и места для отдыха. подойдёт тем, кто хочет жить не совсем в городском ритме.", tag: "северная сторона", image: "/images/02-zhilye-gde-zhit/horoshovo.webp", url: "https://dacha-horoshovo.clients.site/" },
+  { id: 5, name: "резиденция лета", desc: "курортный вариант для спокойного проживания. удобно смотреть, если хочется чуть больше отпускного настроения.", tag: "северная сторона", image: "/images/02-zhilye-gde-zhit/leto.jpg", url: "https://xn----8sbkdbbkic5at4a0b1cyi.xn--p1ai/" },
+  { id: 6, name: "феникс", desc: "вариант для тех, кто хочет быть ближе к пляжам, катерам и нашей стороне бухты.", tag: "северная сторона", image: "/images/02-zhilye-gde-zhit/fenix.webp", url: "https://yandex.ru/maps/org/feniks/50404157721/?ll=33.524465%2C44.634039&z=15.15" }
+];
+
 const famous = [
   { id: 1, name: "новый херсонес", desc: "современный музейный парк рядом с античным городищем. большая территория, интерактивные экспозиции.", price: "бесплатно", tag: "история", featured: false, image: "/images/famous/hersones_new.jpg", url: "https://xn--e1aaxdjgdz.xn--p1ai/" },
   { id: 2, name: "памятник затопленным кораблям", desc: "главная открытка севастополя. колонна с орлом прямо в воде у приморского бульвара. лучше на закате.", price: "бесплатно", tag: "символ", featured: true, image: "/images/famous/zatoplennum.jpg", url: "https://yandex.com/maps/org/monument_to_the_sunken_ships/58354816334/?ll=33.551173%2C44.584572&z=9" },
@@ -46,8 +55,9 @@ const beaches = [
   { id: 2, name: "баунти", desc: "небольшой пляж с белой галькой и бирюзовой водой. вид сверху не оставит вас равнодушными, спускаться 10–15 минут, но оно того стоит, внизу советую взять сап в аренду.", type: "галька", featured: true, image: "/images/beaches/baunti.webp", url: "https://yandex.com/maps/org/baunti/233781270179/gallery/?ll=33.487550%2C44.535478&z=3" },
   { id: 3, name: "учкуевка", desc: "главный пляж северной стороны. длинный, песчаный, есть пара диких мест, где можно сделать шашлындос.", type: "песок", featured: true, note: "северная сторона", image: "/images/beaches/uchkuevka.webp", url: "https://yandex.com/maps/org/uchkuevka/103608466680/gallery/?ll=33.537064%2C44.646047&z=8" },
   { id: 4, name: "инжир", desc: "дикий пляж в балаклаве — только пешком или на катере, добираться не быстро, но стоит того.", type: "дикий", featured: false, image: "/images/beaches/inzhir.jpg", url: "https://www.krym4you.com/otdyh/plyazhi/plyazh-inzhir-v-balaklave/" },
-  { id: 5, name: "голубая бухта", desc: "бухта с ярко-синей водой. тихо, красиво, мало людей.", type: "бухта", featured: false, image: "/images/beaches/blue buhta.webp", url: "https://yandex.com/maps/org/plyazh_golubaya_bukhta/22876988992/?ll=33.410182%2C44.565951&z=5" },
-  { id: 6, name: "грот дианы", desc: "пляж у живописного грота. доступен только пешком по тропе.", type: "тропа", featured: false, image: "/images/beaches/diana.webp", url: "https://jalita.com/guidebook/sevastopol/grot_diany_mys_lermontova.shtml" }
+  { id: 5, name: "голубая бухта", desc: "бухта с ярко-синей водой. тихо, красиво, мало людей.", type: "бухта", featured: false, image: "/images/07-plyazhi/golobuya buhta.jpg", url: "https://yandex.com/maps/org/plyazh_golubaya_bukhta/22876988992/?ll=33.410182%2C44.565951&z=5" },
+  { id: 6, name: "грот дианы", desc: "пляж у живописного грота. доступен только пешком по тропе.", type: "тропа", featured: false, image: "/images/beaches/diana.webp", url: "https://jalita.com/guidebook/sevastopol/grot_diany_mys_lermontova.shtml" },
+  { id: 7, name: "золотая женщина", desc: "дикий пляж у фиолента с прозрачной водой и красивыми скалами. спуск не для ленивых, зато внизу очень по-крымски.", type: "дикий", featured: false, image: "/images/07-plyazhi/zolotaya.JPG", url: "https://yandex.ru/maps/org/skalki/57140554688/?display-text=%D0%9F%D0%BB%D1%8F%D0%B6%D0%B8&ll=33.502833%2C44.612908&mode=search&sctx=ZAAAAAgBEAAaKAoSCadZoN0hw0BAEUnXTL7ZTkZAEhIJUHEceLVc5j8RKsdkcf8R6D8iBgABAgMEBSgKOABAvwdIAWI6cmVhcnI9c2NoZW1lX0xvY2FsL0dlb3VwcGVyL0FkdmVydHMvQ3VzdG9tTWF4YWR2L0VuYWJsZWQ9MWI6cmVhcnI9c2NoZW1lX0xvY2FsL0dlb3VwcGVyL0FkdmVydHMvQ3VzdG9tTWF4YWR2L01heGFkdj0xNWJEcmVhcnI9c2NoZW1lX0xvY2FsL0dlb3VwcGVyL0FkdmVydHMvQ3VzdG9tTWF4YWR2L1JlZ2lvbklkcz1bMSwxMDE3NF1iQHJlYXJyPXNjaGVtZV9Mb2NhbC9HZW91cHBlci9BZHZlcnRzL01heGFkdlRvcE1peC9NYXhhZHZGb3JNaXg9MTBqAnJ1nQHNzMw9oAEAqAEAvQHf%2BjlWwgEGwNfe7tQBggIXY2F0ZWdvcnlfaWQ6KDE4NDEwNjM0MimKAgkxODQxMDYzNDKSAgCaAgxkZXNrdG9wLW1hcHM%3D&sll=33.502833%2C44.612908&sspn=0.001915%2C0.001337&text=category_id%3A%28184106342%29&z=19.09" }
 ];
 
 const hidden = [
@@ -72,4 +82,4 @@ const trips = [
   { id: 3, name: "алупка", desc: "воронцовский дворец. очень уютный городочек с милыми улочками.", distance: "1.5 часа", featured: false, image: "/images/trips/alupka.jpg" }
 ];
 
-window.placesData = { famous, food, bars, beaches, hidden, trips, hiking };
+window.placesData = { housing, famous, food, bars, beaches, hidden, trips, hiking };

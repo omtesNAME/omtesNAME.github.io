@@ -294,7 +294,37 @@ function cardHike(p) {
   return cardBase(p, p.price, [p.duration, p.distance].filter(Boolean).join(' · '));
 }
 
+function cardGrid(p) {
+  const content = `
+    <div class="card-b__photo-wrap">
+      <div class="card-b__photo-inner">
+        ${p.image
+          ? `<img src="${p.image}" alt="${p.name}" loading="lazy">`
+          : `<span class="cc-ph-label">${p.name}</span>`}
+      </div>
+    </div>
+    <div class="card-b__body">
+      ${p.tag ? `<span class="card-b__tag">${p.tag}</span>` : ''}
+      <h3 class="card-b__name">${p.name}</h3>
+      <p class="card-b__desc">${p.desc}</p>
+    </div>
+  `;
+
+  return `<article class="card-b${p.url ? ' card-b--linked' : ''}">
+    ${p.url
+      ? `<a class="card-b__link" href="${p.url}" target="_blank" rel="noopener">${content}</a>`
+      : content}
+  </article>`;
+}
+
 /* ── 12. Render functions ── */
+function renderHousing() {
+  const el   = qs('#housing-grid');
+  const data = window.placesData?.housing;
+  if (!el || !data) return;
+  el.innerHTML = data.map(cardGrid).join('');
+}
+
 function renderFood() {
   const el   = qs('#food-carousel');
   const data = window.placesData?.food;
@@ -358,6 +388,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHero3();
 
   renderFood();
+  renderHousing();
   renderSights();
   renderBars();
   renderBeaches();

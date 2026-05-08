@@ -36,8 +36,8 @@
 
       <nav class="nav-desktop" aria-label="основная навигация">
         <ul>
-          <li><a href="#zhilye">жильё</a></li>
           <li><a href="#rayony">районы</a></li>
+          <li><a href="#zhilye">жильё</a></li>
           <li><a href="#izvestnoe">известное</a></li>
           <li class="nav-has-dropdown">
             <a href="#restorany">места</a>
@@ -67,8 +67,8 @@
     <button class="mobile-menu__close" id="mobile-close-btn" aria-label="закрыть меню">✕</button>
     <nav aria-label="мобильная навигация">
       <ul>
-        <li><a href="#zhilye"    class="mobile-menu__link">жильё</a></li>
         <li><a href="#rayony"    class="mobile-menu__link">районы</a></li>
+        <li><a href="#zhilye"    class="mobile-menu__link">жильё</a></li>
         <li><a href="#izvestnoe" class="mobile-menu__link">известное</a></li>
         <li><a href="#restorany" class="mobile-menu__link">где поесть</a></li>
         <li><a href="#bary"      class="mobile-menu__link">где выпить</a></li>
@@ -97,21 +97,43 @@
             <p class="hero2-tagline">гайд для своих</p>
             <p class="hero2-meta">куда, зачем и почему</p>
             <div class="hero2-tags" aria-label="темы">
-              <span>море</span><span>·</span><span>история</span><span>·</span><span>еда</span>
+              <span class="hero2-tag">море</span>
+              <span class="hero2-tag-dot">·</span>
+              <span class="hero2-tag">история</span>
+              <span class="hero2-tag-dot">·</span>
+              <span class="hero2-tag">еда</span>
+              <span class="hero2-tag-dot">·</span>
+              <span class="hero2-tag">пляжи</span>
+              <span class="hero2-tag-dot">·</span>
+              <span class="hero2-tag">свадьба</span>
+              <span class="hero2-tag-dot">·</span>
+              <span class="hero2-tag">отдых</span>
             </div>
           </div>
           <div class="hero2-stats" aria-label="ключевые цифры">
               <div class="hero2-stat">
-                <div class="hero2-stat__num"><span class="h3-num" data-target="50">0</span>+</div>
+                <div class="hero2-stat__num"><span class="h3-num" data-target="22">0</span></div>
+                <div class="hero2-stat__label">заведения</div>
+              </div>
+              <div class="hero2-stat">
+                <div class="hero2-stat__num"><span class="h3-num" data-target="14">0</span></div>
                 <div class="hero2-stat__label">мест</div>
               </div>
               <div class="hero2-stat">
                 <div class="hero2-stat__num"><span class="h3-num" data-target="8">0</span></div>
+                <div class="hero2-stat__label">пляжей</div>
+              </div>
+              <div class="hero2-stat">
+                <div class="hero2-stat__num"><span class="h3-num" data-target="7">0</span></div>
+                <div class="hero2-stat__label">маршрутов</div>
+              </div>
+              <div class="hero2-stat">
+                <div class="hero2-stat__num"><span class="h3-num" data-target="7">0</span></div>
                 <div class="hero2-stat__label">районов</div>
               </div>
               <div class="hero2-stat">
-                <div class="hero2-stat__num"><span class="h3-num" data-target="1">0</span></div>
-                <div class="hero2-stat__label">неделя</div>
+                <div class="hero2-stat__num"><span class="h3-num" data-target="100000">0</span></div>
+                <div class="hero2-stat__label">видов</div>
               </div>
           </div>
         </div>
@@ -119,33 +141,10 @@
     </section>
 
     <!-- =====================================================
-         3. ГДЕ ЖИТЬ — голубой фон (#C8D9E6)
-         Перенесена сюда — гости смотрят первым делом
-         ===================================================== -->
-    <section class="section--sky" id="zhilye" aria-label="где остановиться">
-      <span class="section-num" aria-hidden="true">01</span>
-      <div class="container">
-        <div class="section-header">
-          <p class="section-eyebrow">аренда</p>
-          <h2 class="section-title">где жить</h2>
-          <p class="section-quip">районы, от которых зависит настроение недели</p>
-        </div>
-        <!-- TODO: карточки районов с плюсами (✓) и минусами (✗).
-             Каждая карточка: название района, 2-3 предложения, список плюсов и минусов -->
-        <div class="cards-grid" id="housing-grid">
-          <p class="placeholder-note">[карточки жилья по районам — заполним в этапе 4]</p>
-        </div>
-        <blockquote class="section-callout">
-          сентябрь в севастополе — всё ещё высокий сезон. бронируйте за 2–3 месяца, иначе хорошие варианты разбирают
-        </blockquote>
-      </div>
-    </section>
-
-    <!-- =====================================================
-         4. РАЙОНЫ — кремовый фон, карта + карточки
+         3. РАЙОНЫ — кремовый фон, карта + карточки
          ===================================================== -->
     <section id="rayony" aria-label="районы">
-      <span class="section-num" aria-hidden="true">02</span>
+      <span class="section-num" aria-hidden="true">01</span>
       <div class="container">
         <div class="section-header">
           <p class="section-eyebrow">география</p>
@@ -153,24 +152,77 @@
           <p class="section-quip">северная, южная, казачка и другие слова, которые быстро станут понятными</p>
         </div>
 
-        <!-- КАРТА РАЙОНОВ
-             TODO: сохрани скриншот карты в /images/map-base.png
-             Размер: 1200×800px (3:2), PNG или WebP.
-             Охвати всё — от Балаклавы до Северной стороны.
-             Замени .map-placeholder на:
-             <img src="/images/map-base.png" alt="карта севастополя" loading="lazy"> -->
-        <div class="map-wrapper">
-          <div class="map-placeholder">
-            <span>карта появится здесь<br><small>→ /images/map-base.png (1200×800px)</small></span>
+        <div class="district-map-card">
+          <div class="district-map-shot">
+            <img src="/images/03-rayony/map.jpg" alt="карта районов севастополя" loading="lazy">
+            <button class="district-pin district-pin--north" type="button">
+              <span>северная</span>
+              <span class="district-tooltip">тише, ближе к нам, учкуевка и любимовка рядом. лучший район для жилья на эту поездку.</span>
+            </button>
+            <button class="district-pin district-pin--center" type="button">
+              <span>центр</span>
+              <span class="district-tooltip">прогулки, памятники, рестораны, графская пристань и весь классический севастополь.</span>
+            </button>
+            <button class="district-pin district-pin--streletskaya" type="button">
+              <span>стрелецкая</span>
+              <span class="district-tooltip">район у стрелецкой бухты: херсонес, песочный, солнечный и спокойная городская жизнь.</span>
+            </button>
+            <button class="district-pin district-pin--por" type="button">
+              <span>пор</span>
+              <span class="district-tooltip">проспект октябрьской революции и лётчики: парк победы, омега, кафе и много повседневной инфраструктуры.</span>
+            </button>
+            <button class="district-pin district-pin--kazachka" type="button">
+              <span>казачка</span>
+              <span class="district-tooltip">западная часть города, бухты, маяк, голубая бухта и ощущение края карты.</span>
+            </button>
+            <button class="district-pin district-pin--fiolent" type="button">
+              <span>фиолент</span>
+              <span class="district-tooltip">скалы, дикие пляжи, виды сверху и спуски, после которых море кажется заслуженным.</span>
+            </button>
+            <button class="district-pin district-pin--balaklava" type="button">
+              <span>балаклава</span>
+              <span class="district-tooltip">бухта, катера, чембало, рыбные места и самый кинематографичный вечер рядом с севастополем.</span>
+            </button>
+
+            <a class="map-point map-point--wedding" href="https://yandex.ru/maps/org/bokho/232387355962/?ll=33.427038%2C44.567935&z=12.8" target="_blank" rel="noopener" aria-label="место свадьбы">
+              <span class="map-point__dot"></span>
+              <span class="map-point__label">свадьба</span>
+            </a>
+            <span class="map-point map-point--home" aria-label="наш дом">
+              <span class="map-point__dot"></span>
+              <span class="map-point__label">наш дом</span>
+            </span>
           </div>
-          <svg class="map-svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-            <!-- TODO: полигоны и подписи районов добавим когда будет реальная карта -->
-          </svg>
         </div>
 
-        <!-- Карточки районов — наполнятся из data/places.js -->
-        <div class="districts-grid" id="districts-grid">
-          <p class="placeholder-note">[карточки 8 районов — заполним в этапе 4]</p>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         4. ГДЕ ЖИТЬ — голубой фон (#C8D9E6)
+         ===================================================== -->
+    <section class="section--sky" id="zhilye" aria-label="где остановиться">
+      <span class="section-num" aria-hidden="true">02</span>
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">аренда</p>
+          <h2 class="section-title">где жить</h2>
+          <p class="section-quip">варианты рядом с нами и морем</p>
+        </div>
+        <div class="section-callout housing-intro">
+          дорогие гости, советуем бронировать жильё на северной стороне. здесь живём мы сами, и нам очень хочется провести с вами как можно больше времени до торжества. до южной стороны — основной части города — легко добраться на катере, пароме или такси в объезд севастопольской бухты. на северной вас ждёт потрясающая компания: мы с женей, длинная песчаная береговая линия и место, где на второй день после свадьбы мы продолжим веселье в большом загородном доме с бассейном. трансфер до места торжества тоже будет отправляться отсюда для вашего удобства.
+        </div>
+        <div class="cards-grid" id="housing-grid">
+          <p class="placeholder-note">[карточки жилья по районам — заполним в этапе 4]</p>
+        </div>
+        <div class="section-callout housing-booking-note">
+          <ul class="housing-tips">
+            <li>бронировать желательно уже сейчас, чтобы занять хорошие варианты</li>
+            <li>цены стартуют от 1500 ₽ за сутки, не с человека</li>
+            <li>северная сторона — это как дёма: тихо, уютно и чуть в стороне от центра</li>
+            <li>до южной стороны можно добраться на катере, пароме или такси</li>
+            <li>рядом длинная песчаная береговая линия — редкость для севастополя</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -261,7 +313,7 @@
           </div>
         </div>
         <blockquote class="section-callout">
-          в сентябре море обычно ещё тёплое: примерно 18–22°. купальник брать точно стоит
+          в сентябре море обычно ещё тёплое: примерно 18–22°.
         </blockquote>
       </div>
     </section>
@@ -345,8 +397,24 @@
         </div>
         <div class="carousel-wrap">
           <div class="carousel" id="nuances-carousel">
+            <article class="carousel-card carousel-card--linked">
+              <a class="carousel-card__link" href="https://grandtrain.ru/" target="_blank" rel="noopener">
+                <div class="carousel-card__photo">
+                  <img src="/images/nuances/poezda.jpg" alt="поезд в крым" loading="lazy">
+                </div>
+                <div class="carousel-card__body">
+                  <div class="carousel-card__header">
+                    <h3 class="carousel-card__name">билеты на поезд</h3>
+                    <span class="carousel-card__tag">за 90 дней</span>
+                  </div>
+                  <p class="carousel-card__desc">билеты в крым и обратно берут только на grand train. продажи открываются за 90 дней; поездов немного, сентябрь ещё сезон, хорошие места быстро разбирают. лучше заняться этим заранее.</p>
+                </div>
+              </a>
+            </article>
             <article class="carousel-card">
-              <div class="carousel-card__photo"><span class="cc-ph-label">транспорт</span></div>
+              <div class="carousel-card__photo">
+                <img src="/images/nuances/po gorodu.jpg" alt="улица севастополя" loading="lazy">
+              </div>
               <div class="carousel-card__body">
                 <div class="carousel-card__header">
                   <h3 class="carousel-card__name">по городу</h3>
@@ -356,7 +424,9 @@
               </div>
             </article>
             <article class="carousel-card">
-              <div class="carousel-card__photo"><span class="cc-ph-label">катера</span></div>
+              <div class="carousel-card__photo">
+                <img src="/images/nuances/kater.jpg" alt="катер в севастопольской бухте" loading="lazy">
+              </div>
               <div class="carousel-card__body">
                 <div class="carousel-card__header">
                   <h3 class="carousel-card__name">северная ↔ южная</h3>
@@ -366,7 +436,9 @@
               </div>
             </article>
             <article class="carousel-card">
-              <div class="carousel-card__photo"><span class="cc-ph-label">деньги</span></div>
+              <div class="carousel-card__photo">
+                <img src="/images/nuances/5 rub.jpg" alt="наличные деньги" loading="lazy">
+              </div>
               <div class="carousel-card__body">
                 <div class="carousel-card__header">
                   <h3 class="carousel-card__name">наличные</h3>
@@ -376,7 +448,9 @@
               </div>
             </article>
             <article class="carousel-card">
-              <div class="carousel-card__photo"><span class="cc-ph-label">погода</span></div>
+              <div class="carousel-card__photo">
+                <img src="/images/nuances/evnening.jpg" alt="вечер у моря" loading="lazy">
+              </div>
               <div class="carousel-card__body">
                 <div class="carousel-card__header">
                   <h3 class="carousel-card__name">вечерний ветер</h3>
@@ -386,7 +460,9 @@
               </div>
             </article>
             <article class="carousel-card">
-              <div class="carousel-card__photo"><span class="cc-ph-label">море</span></div>
+              <div class="carousel-card__photo">
+                <img src="/images/nuances/bitches wild.JPG" alt="дикий пляж у моря" loading="lazy">
+              </div>
               <div class="carousel-card__body">
                 <div class="carousel-card__header">
                   <h3 class="carousel-card__name">дикие пляжи</h3>
@@ -396,43 +472,27 @@
               </div>
             </article>
             <article class="carousel-card">
-              <div class="carousel-card__photo"><span class="cc-ph-label">связь</span></div>
-              <div class="carousel-card__body">
-                <div class="carousel-card__header">
-                  <h3 class="carousel-card__name">офлайн-точки</h3>
-                  <span class="carousel-card__tag">заранее</span>
-                </div>
-                <p class="carousel-card__desc">в городе связь нормальная, но в бухтах и на тропах может пропадать. сохраните адреса и точки заранее.</p>
+              <div class="carousel-card__photo">
+                <img src="/images/nuances/pereboi.jpg" alt="телефон и связь в дороге" loading="lazy">
               </div>
-            </article>
-            <article class="carousel-card">
-              <div class="carousel-card__photo"><span class="cc-ph-label">интернет</span></div>
               <div class="carousel-card__body">
                 <div class="carousel-card__header">
-                  <h3 class="carousel-card__name">перебои связи</h3>
+                  <h3 class="carousel-card__name">связь и офлайн-точки</h3>
                   <span class="carousel-card__tag">бывает</span>
                 </div>
-                <p class="carousel-card__desc">иногда мобильный интернет временно отключают или он работает нестабильно. офлайн-карты и адреса лучше сохранить заранее.</p>
+                <p class="carousel-card__desc">в бухтах и на тропах связь может пропадать, а иногда мобильный интернет работает нестабильно. сохраните адреса, точки и офлайн-карты заранее.</p>
               </div>
             </article>
             <article class="carousel-card">
-              <div class="carousel-card__photo"><span class="cc-ph-label">тревоги</span></div>
+              <div class="carousel-card__photo">
+                <img src="/images/nuances/warning.JPG" alt="городское предупреждение" loading="lazy">
+              </div>
               <div class="carousel-card__body">
                 <div class="carousel-card__header">
                   <h3 class="carousel-card__name">сигналы тревоги</h3>
                   <span class="carousel-card__tag">спокойно</span>
                 </div>
                 <p class="carousel-card__desc">в городе могут звучать сирены и объявления. не паникуйте, смотрите официальные сообщения и следуйте указаниям на месте.</p>
-              </div>
-            </article>
-            <article class="carousel-card">
-              <div class="carousel-card__photo"><span class="cc-ph-label">с собой</span></div>
-              <div class="carousel-card__body">
-                <div class="carousel-card__header">
-                  <h3 class="carousel-card__name">что взять</h3>
-                  <span class="carousel-card__tag">база</span>
-                </div>
-                <p class="carousel-card__desc">удобную обувь, солнцезащиту, купальник, пауэрбанк и что-нибудь на вечер. город любит подготовленных.</p>
               </div>
             </article>
           </div>
@@ -460,9 +520,8 @@
           <p class="footer-col__text">
             севастополь · гайд 
           </p>
-          <!-- TODO: замени [INVITE_URL] на ссылку на сайт-приглашение -->
-          <a href="[INVITE_URL]" class="btn btn-accent" target="_blank" rel="noopener">
-            сайт-приглашение →
+          <a href="https://igor-evgenia-wedding.taplink.ws/" class="btn btn-accent" target="_blank" rel="noopener">
+            сайт-приглашение
           </a>
         </div>
 
@@ -480,8 +539,8 @@
         <div>
           <span class="footer-col__label">разделы</span>
           <nav class="footer-col__links" aria-label="навигация в футере">
-            <a href="#zhilye">жильё</a>
             <a href="#rayony">районы</a>
+            <a href="#zhilye">жильё</a>
             <a href="#izvestnoe">известное</a>
             <a href="#restorany">где поесть</a>
             <a href="#poezdki">поездки</a>
