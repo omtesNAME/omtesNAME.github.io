@@ -716,12 +716,12 @@ section > .container {
 }
 
 .district-pin--north { left: 54%; top: 19%; }
-.district-pin--center { left: 46%; top: 43%; }
+.district-pin--center { left: 46%; top: 40%; }
 .district-pin--streletskaya { left: 34%; top: 41%; }
 .district-pin--por { left: 31%; top: 51%; }
 .district-pin--kazachka { left: 19%; top: 54%; }
 .district-pin--fiolent { left: 34%; top: 77%; }
-.district-pin--balaklava { left: 66%; top: 89%; }
+.district-pin--balaklava { left: 63%; top: 89%; }
 
 .district-tooltip {
   position: absolute;
@@ -792,12 +792,12 @@ section > .container {
 }
 
 .map-point--wedding {
-  left: 20%;
+  left: 21%;
   top: 64%;
 }
 
 .map-point--home {
-  left: 56%;
+  left: 57%;
   top: 25%;
 }
 
