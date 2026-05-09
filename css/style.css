@@ -1991,15 +1991,17 @@ section > .container {
 
 .cc-badge {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  font-size: 0.58rem;
+  top: 0.65rem;
+  right: 0.65rem;
+  font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   background-color: var(--accent-beige);
   color: var(--bg-navy);
-  padding: 0.2rem 0.45rem;
+  padding: 0.28rem 0.62rem;
+  border: 1px solid rgba(47, 65, 86, 0.18);
   border-radius: var(--r-sm);
+  box-shadow: 0 0.35rem 1rem rgba(47, 65, 86, 0.16);
 }
 
 .carousel-card__tag {
